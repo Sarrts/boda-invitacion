@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Diana & José | Nuestra Boda</title>
+  <meta name="description"
+    content="Acompáñanos a celebrar nuestra unión matrimonial. Encuentra aquí todos los detalles, ubicaciones y cuenta regresiva.">
+
+  <!-- Open Graph / Meta para compartir en WhatsApp / Redes Sociales -->
+  <meta property="og:title" content="Boda de Diana & José | Invitación">
+  <meta property="og:description"
+    content="¡Nos casamos! Queremos que formes parte de este día tan especial. Conoce aquí todos los detalles y ubicaciones.">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/logo-boda.png">
+
+  <!-- Fuentes de Google: Cormorant Garamond, Great Vibes, Montserrat & Playfair Display -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap"
+    rel="stylesheet">
+
+  <!-- Estilos CSS -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+  <!-- ======================================================================
+       FLORES FIJAS EN LAS ESQUINAS (PERMANENTES DURANTE LA NAVEGACIÓN)
+       Inspiradas en el diseño floral de fondo.jpg
+       ====================================================================== -->
+  <div class="corner-flower-fixed corner-tl" aria-hidden="true">
+    <img src="assets/corner-tl.png" alt="Detalle floral esquina superior izquierda">
+  </div>
+  <div class="corner-flower-fixed corner-br" aria-hidden="true">
+    <img src="assets/corner-br.png" alt="Detalle floral esquina inferior derecha">
+  </div>
+
+  <!-- Marca de agua de fondo sutil -->
+  <div class="watermark-bg" aria-hidden="true"></div>
+
+  <!-- ======================================================================
+       SOBRE DE BIENVENIDA INTERACTIVO (EFECTO APERTURA 3D DE SOBRE DE BODA)
+       Se muestra antes de revelar la invitación al usuario.
+       ====================================================================== -->
+  <div id="envelope-overlay" class="envelope-overlay">
+    <div class="envelope-backdrop"></div>
+    <div class="envelope-scene">
+      <div class="envelope-wrapper" id="envelope-wrapper" role="button" tabindex="0"
+        title="Toca para abrir la invitación" aria-label="Abrir sobre de invitación de boda">
+
+        <!-- Fondo interior del sobre -->
+        <div class="envelope-back"></div>
+
+        <!-- Tarjeta interior que se asoma y sale suavemente del sobre -->
+        <div class="envelope-card-preview" id="envelope-card-preview">
+          <div class="card-preview-content">
+            <img src="assets/logo-boda.png" alt="Diana & José" class="card-preview-logo">
+            <p class="card-preview-subtitle">Nuestra Boda</p>
+            <h3 class="card-preview-names">Diana & José</h3>
+            <span class="card-preview-date">7 de Diciembre de 2026</span>
+          </div>
+        </div>
+
+        <!-- Bolsillo frontal del sobre -->
+        <div class="envelope-pocket"></div>
+
+        <!-- Solapa superior triangular plegable (se abre hacia arriba en 3D) -->
+        <div class="envelope-flap" id="envelope-flap">
+          <div class="envelope-flap-inner"></div>
+        </div>
+
+        <!-- Sello con el logo oficial que mantiene cerrado el sobre -->
+        <div class="envelope-wax-seal envelope-logo-seal" id="envelope-wax-seal" title="Toca para abrir la invitación">
+          <div class="seal-logo-disc">
+            <img src="assets/logo-boda.png" alt="Sello oficial Diana & José" class="seal-logo-img">
+          </div>
+          <div class="seal-pulse-ring"></div>
+        </div>
+
+      </div>
+
+      <!-- Indicaciones para el usuario -->
+      <div class="envelope-prompt" id="envelope-prompt">
+        <p class="envelope-prompt-title">Diana & José</p>
+        <button type="button" class="envelope-open-action-btn" id="envelope-open-btn">
+          <span class="open-icon"></span>
+          <span>Toca el sobre para abrir</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       ENVOLTORIO PRINCIPAL DE LA INVITACIÓN
+       (Se revela con una transición suave al abrir el sobre)
+       ====================================================================== -->
+  <div class="site-wrapper" id="site-wrapper">
+
+    <!-- ======================================================================
+         1. HERO / PORTADA CON EL LOGO OFICIAL
+         ====================================================================== -->
+    <header class="hero-section">
+      <!-- Logo circular oficial con marco dorado y relieve -->
+      <div class="hero-logo-frame">
+        <img src="assets/logo-boda.png" alt="Diana & José - 7 de Diciembre de 2026" class="hero-main-logo"
+          id="hero-logo">
+      </div>
+    </header>
+
+    <!-- ======================================================================
+         2. SECCIÓN DE FOTOS TIPO BARAJA (STACKED CARDS)
+         Con frases personalizadas arriba y debajo de la galería
+         ====================================================================== -->
+    <section class="carousel-section" aria-label="Galería de Fotos">
+      <span class="section-label">Momentos Inolvidables</span>
+      <h2 class="section-title">Nuestra Historia de Amor</h2>
+      <div class="ornament-divider"></div>
+
+      <!-- FRASE ARRIBA DE LAS FOTOS -->
+      <div class="phrase-banner phrase-before-banner">
+        <p class="phrase-before-text" id="phrase-before-photos">
+          Despues de tantos años juntos en los que hemos sido sumamente felices, por fin hemos decidido dar el siguiente
+          gran paso ¡¡ casarnos !!
+        </p>
+      </div>
+
+      <!-- Contenedor 3D de la baraja interactiva -->
+      <div class="carousel-deck-container" id="photo-deck" title="Toca la foto para ver la siguiente">
+        <!-- Las fotos se inyectan dinámicamente desde js/config.js -->
+      </div>
+
+      <!-- Pista interactiva para celular -->
+      <div class="carousel-hint">
+        <span>👉 Toca la foto para ver la siguiente</span>
+      </div>
+
+      <!-- Controles: Flechas y Puntos -->
+      <div class="carousel-controls">
+        <button id="prev-photo-btn" class="carousel-btn" title="Foto anterior" aria-label="Foto anterior">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+          </svg>
+        </button>
+
+        <div class="carousel-dots" id="carousel-dots">
+          <!-- Puntos generados por JS -->
+        </div>
+
+        <button id="next-photo-btn" class="carousel-btn" title="Siguiente foto" aria-label="Siguiente foto">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- FRASE DEBAJO DE LAS FOTOS (VERSÍCULO BÍBLICO) -->
+      <div class="phrase-banner phrase-after-banner">
+        <div class="scripture-box" id="phrase-after-container">
+          <p class="scripture-text" id="phrase-after-verse">
+            Uno solo puede ser vencido. pero dos pueden resistir.<br>
+            ¡La cuerda de tres hilos no se rompe fácilmente!
+          </p>
+          <cite class="scripture-reference" id="phrase-after-ref">Elesiastes 4.12</cite>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         3. CUENTA REGRESIVA (COUNTDOWN)
+         ====================================================================== -->
+    <section class="countdown-section" aria-label="Cuenta Regresiva">
+      <span class="countdown-date-badge" id="wedding-formatted-date">CARGANDO FECHA...</span>
+      <h2 class="section-title">Faltan tan solo...</h2>
+      <div class="ornament-divider"></div>
+
+      <div class="countdown-grid">
+        <div class="countdown-box">
+          <span class="countdown-number" id="count-days">00</span>
+          <span class="countdown-label">Días</span>
+        </div>
+        <div class="countdown-box">
+          <span class="countdown-number" id="count-hours">00</span>
+          <span class="countdown-label">Horas</span>
+        </div>
+        <div class="countdown-box">
+          <span class="countdown-number" id="count-minutes">00</span>
+          <span class="countdown-label">Minutos</span>
+        </div>
+        <div class="countdown-box">
+          <span class="countdown-number" id="count-seconds">00</span>
+          <span class="countdown-label">Segundos</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         4. UBICACIONES (IGLESIA Y RECEPCIÓN CON MINIMAPAS)
+         ====================================================================== -->
+    <section class="locations-section" aria-label="Ubicaciones">
+      <div style="text-align: center;">
+        <span class="section-label">¿Dónde y a qué hora?</span>
+        <h2 class="section-title">Lugares de Celebración</h2>
+        <div class="ornament-divider"></div>
+      </div>
+
+      <div class="location-cards-wrapper">
+
+        <!-- Tarjeta 1: La Iglesia (Ceremonia) -->
+        <article class="location-card">
+          <div class="location-badge-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M10 2h4v4h4v4h-4v12h-4V10H6V6h4V2z" />
+            </svg>
+          </div>
+          <h3 class="location-title" id="church-title">Ceremonia Religiosa</h3>
+          <p class="location-place-name" id="church-place">Iglesia Santa María de los Ángeles</p>
+          <span class="location-time" id="church-time">6:00 PM</span>
+          <p class="location-address" id="church-address">Dirección de la Iglesia</p>
+
+          <!-- Minimapa interactivo de Google Maps -->
+          <div class="map-embed-container">
+            <iframe id="church-map-iframe" title="Minimapa de la Iglesia" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade" allowfullscreen>
+            </iframe>
+          </div>
+
+          <!-- Botón directo Ubicar en Google Maps -->
+          <a id="church-map-link" href="#" target="_blank" rel="noopener noreferrer" class="btn-maps">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+            </svg>
+            Ubicar en Google Maps
+          </a>
+        </article>
+
+        <!-- Tarjeta 2: Recepción / Fiesta -->
+        <article class="location-card">
+          <div class="location-badge-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M5 2h14v3l-5 5.5V19h4v2H6v-2h4v-8.5L5 5V2zm2 3h10V4H7v1zm2.5 3h5l1.82-2H7.68l1.82 2z" />
+            </svg>
+          </div>
+          <h3 class="location-title" id="reception-title">Celebración & Fiesta</h3>
+          <p class="location-place-name" id="reception-place">Nuestro Hogar</p>
+          <span class="location-time" id="reception-time">8:30 PM</span>
+          <p class="location-address" id="reception-address">Cra 3cw #21-75 B/El amparo</p>
+
+          <!-- Minimapa interactivo de Google Maps -->
+          <div class="map-embed-container">
+            <iframe id="reception-map-iframe" title="Minimapa de la Fiesta" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade" allowfullscreen>
+            </iframe>
+          </div>
+
+          <!-- Botón directo Ubicar en Google Maps -->
+          <a id="reception-map-link" href="#" target="_blank" rel="noopener noreferrer" class="btn-maps">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+            </svg>
+            Ubicar en Google Maps
+          </a>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         5. NUEVO BLOQUE: MESA DE REGALOS
+         ====================================================================== -->
+    <section class="gift-section" id="gift-section" aria-label="Mesa de Regalos">
+      <div style="text-align: center;">
+        <span class="section-label" id="gift-label">Detalles de Cariño</span>
+        <h2 class="section-title" id="gift-title">Mesa de Regalos</h2>
+        <div class="ornament-divider"></div>
+      </div>
+
+      <div class="gift-card">
+        <div class="gift-icon-container" aria-hidden="true">
+          <!-- Icono elegante de Regalo con cinta dorada -->
+          <svg viewBox="0 0 24 24" class="gift-svg-icon">
+            <path
+              d="M20 6h-2.18c.11-.31.18-.65.18-1 0-1.66-1.34-3-3-3-1.05 0-1.96.54-2.5 1.35l-.5.65-.5-.65C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c.55 0 1 .45 1 1s-.45 1-1 1h-2.22l.8-1.07c.32-.43.83-.93 1.42-.93zM9 4c.59 0 1.1.5 1.42.93l.8 1.07H9c-.55 0-1-.45-1-1s.45-1 1-1zm11 15H4v-2h16v2zm0-5H4V8h5.08L7 10.83 8.62 12 11 8.76V14h2V8.76L15.38 12 17 10.83 14.92 8H20v6z" />
+          </svg>
+        </div>
+
+        <p class="gift-message-text" id="gift-message">
+          Su presencia es nuestro mejor regalo. Si desean obsequiarnos algo más, lo recibiremos con gratitud.
+        </p>
+
+        <!-- Bloque opcional para información bancaria si se activa en config.js -->
+        <div class="gift-bank-info" id="gift-bank-info" style="display: none;">
+          <div class="bank-info-item">
+            <span class="bank-label">Banco:</span>
+            <span class="bank-val" id="gift-bank-name"></span>
+          </div>
+          <div class="bank-info-item">
+            <span class="bank-label">Cuenta:</span>
+            <span class="bank-val" id="gift-bank-account"></span>
+          </div>
+          <div class="bank-info-item">
+            <span class="bank-label">Titular:</span>
+            <span class="bank-val" id="gift-bank-owner"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 
+         6. pie de pagina y dedicatoria 
+        -->
+    <footer class="footer-section">
+      <img src="assets/ornament.svg" alt="Ornamento" class="footer-ornament-img">
+
+      <p class="footer-quote" id="love-quote">
+        «El amor no mira con los ojos, sino con el alma.»
+      </p>
+
+      <p class="footer-names" id="footer-names">
+        Diana & José
+      </p>
+
+      <button type="button" class="btn-reopen-envelope" id="btn-reopen-envelope" title="Ver sobre de apertura de nuevo">
+        Ver sobre nuevamente
+      </button>
+
+      <p class="footer-credits">
+        Hecho con amor por su hijo
+      </p>
+    </footer>
+
+  </div>
+
+  <!-- Archivos de Scripts JavaScript -->
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
