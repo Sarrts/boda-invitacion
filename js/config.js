@@ -52,20 +52,20 @@ const WEDDING_CONFIG = {
   // Fotos para la galería interactiva
   photos: [
     {
-      url: "assets/fotos/foto-1.jpg",
-      caption: "Nuestro amor"
+      url: "assets/fotos/foto-1.webp",
+      caption: ""
     },
     {
-      url: "assets/fotos/foto-2.jpg",
-      caption: "Momentos inolvidables"
+      url: "assets/fotos/foto-2.webp",
+      caption: ""
     },
     {
-      url: "assets/fotos/foto-3.jpg",
-      caption: "Juntos por siempre"
+      url: "assets/fotos/foto-3.webp",
+      caption: ""
     },
     {
-      url: "assets/fotos/foto-4.jpg",
-      caption: "El inicio de una nueva etapa"
+      url: "assets/fotos/foto-4.webp",
+      caption: ""
     }
   ]
 };
